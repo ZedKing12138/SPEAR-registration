@@ -1,0 +1,50 @@
+SPEAR PyTorch implementation
+Copyright (c) 2026 Hao Bai and contributors
+Software license: MIT (see LICENSE).
+
+Associated paper:
+Hao Bai and Yi Hong. SPEAR: Error-Guided Sparse Refinement for Scalable
+Deformable Medical Image Registration. MICCAI 2026.
+Architecture, preprocessing, and training settings are documented in the
+source comments and configuration files.
+
+DATA SOURCES AND TERMS (not covered by the software MIT license)
+No medical images, generated results, or trained weights are included here.
+Download/preprocessing scripts preserve upstream archive contents and record
+local provenance. Dataset access/usage rules remain the provider's rules.
+
+IXI: Information eXtraction from Images project, EPSRC GR/S21533/02;
+Guy's Hospital, Hammersmith Hospital, and Institute of Psychiatry.
+Source: https://brain-development.org/ixi-dataset/
+License: https://creativecommons.org/licenses/by-sa/3.0/
+Raw T1 images do not include regional anatomical labels. Supply independently
+obtained annotations for the semantic prior and anatomical evaluation.
+
+OASIS-1: Open Access Series of Imaging Studies, Washington University.
+Marcus et al. Open Access Series of Imaging Studies (OASIS): Cross-sectional
+MRI data in young, middle aged, nondemented, and demented older adults.
+Journal of Cognitive Neuroscience 19(9), 1498-1507 (2007).
+DOI: 10.1162/jocn.2007.19.9.1498
+Source: https://sites.wustl.edu/oasisbrains/home/oasis-1/
+Access/terms: https://sites.wustl.edu/oasisbrains/request-access/
+Complete the provider's current request and data-use process. The CLI flag
+--terms-accepted declares the operator has done so; it does not grant access.
+The script selects MR1 only and never conflates OASIS-1 with OASIS-3.
+
+IBSR18: Internet Brain Segmentation Repository, v2.0, maintained by the
+Center for Morphometric Analysis at Massachusetts General Hospital.
+Source: https://www.nitrc.org/projects/ibsr/
+Downloads/terms: https://www.nitrc.org/frs/?group_id=48
+Follow the upstream access and use requirements; NITRC login may be needed.
+The script selects anatomical seg_ana labels, not segTRI tissue labels.
+
+Optional IXITiny CPU smoke workflow:
+IXI-derived low-resolution scans and binary whole-brain masks are provided
+by the TorchIO project; these remain CC BY-SA 3.0. Masks are not regional
+anatomical annotations. The download is pinned by commit and SHA-256.
+Provider: https://github.com/TorchIO-project/torchio-data
+Documentation: https://docs.torchio.org/latest/datasets/
+Reference: Perez-Garcia, Sparks, Ourselin. TorchIO: A Python library for
+efficient loading, preprocessing, augmentation and patch-based sampling of
+medical images in deep learning. Computer Methods and Programs in Biomedicine
+208 (2021), 106236. DOI: 10.1016/j.cmpb.2021.106236.

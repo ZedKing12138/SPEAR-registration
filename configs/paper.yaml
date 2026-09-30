@@ -1,0 +1,35 @@
+# SPEAR architecture and GPU training schedule.
+# Pretrain the auxiliary segmenter separately on training annotations.
+# scripts/run_gpu.sh performs both stages. Float32 is intentional; no implicit AMP.
+# GPU memory also depends on dense features/priors, despite a fixed token budget.
+# Data must already be anatomically affine-prealigned. Use target sizes:
+# IXI:144,144,144; OASIS:162,198,162; IBSR18:225,225,225 (D,H,W).
+# Channel widths, flow bound, NCC window and regularization weight are set below.
+# Select hyperparameters using validation data.
+model:
+  feature_channels: 16
+  embed_dim: 48
+  num_heads: 8
+  transformer_layers: 4
+  stages: 3
+  top_k: 6
+  region_grid: 3
+  candidate_grid: 3
+  max_residual: 2.0
+  guidance: semantic
+  hard_nr: true
+  dropout: 0.0
+training:
+  device: cuda:0  # single GPU; CUDA_VISIBLE_DEVICES controls physical GPU visibility
+  threads: 4
+  seed: 17
+  batch_size: 1
+  epochs: 500
+  max_steps: 0  # zero means use all epochs
+  lr: 0.0001
+  lr_step_epochs: 150
+  ncc_window: 9
+  smooth_weight: 0.05
+  coarse_weight: 0.0
+  validate_every: 500
+  stage_weights: [1.0, 1.0, 1.0]

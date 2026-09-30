@@ -1,0 +1,10 @@
+{
+  "subjects": [
+    {"id": "train_001", "image": "images/train_001.nii.gz", "label": "labels/train_001.nii.gz", "split": "train"},
+    {"id": "train_002", "image": "images/train_002.nii.gz", "label": "labels/train_002.nii.gz", "split": "train"},
+    {"id": "val_001", "image": "images/val_001.nii.gz", "label": "labels/val_001.nii.gz", "split": "val"},
+    {"id": "val_002", "image": "images/val_002.nii.gz", "label": "labels/val_002.nii.gz", "split": "val"},
+    {"id": "test_001", "image": "images/test_001.nii.gz", "label": "labels/test_001.nii.gz", "split": "test"},
+    {"id": "test_002", "image": "images/test_002.nii.gz", "label": "labels/test_002.nii.gz", "split": "test"}
+  ]
+}

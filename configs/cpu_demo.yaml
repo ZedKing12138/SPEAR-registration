@@ -1,0 +1,31 @@
+# Small-volume CPU configuration for the IXITiny development workflow.
+# Keep the defining 27 regions / 27 candidates / 6 injections / 3 stages.
+# Width and attention depth are reduced only to make an actual CPU run practical.
+model:
+  feature_channels: 8
+  embed_dim: 24
+  num_heads: 4
+  transformer_layers: 1
+  stages: 3
+  top_k: 6
+  region_grid: 3
+  candidate_grid: 3
+  max_residual: 1.0
+  guidance: semantic
+  hard_nr: true
+  dropout: 0.0
+training:
+  device: cpu
+  threads: 2
+  seed: 17
+  batch_size: 1
+  epochs: 20
+  max_steps: 240
+  lr: 0.0003
+  lr_step_epochs: 150
+  ncc_window: 7
+  smooth_weight: 0.1
+  coarse_weight: 0.0
+  validate_every: 40
+  # Apply equal loss weights to the three refinement stages.
+  stage_weights: [1.0, 1.0, 1.0]

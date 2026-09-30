@@ -1,0 +1,14 @@
+include LICENSE NOTICE CITATION.cff .gitignore
+recursive-include .github/workflows *.yml
+recursive-include configs *.yaml *.yml *.json
+recursive-include scripts *.py *.sh
+recursive-include tests *.py
+# Clinical data, downloaded archives, and local caches never belong in an sdist.
+global-exclude *.nii *.nii.gz *.dcm *.mgz *.mgh *.npz *.npy *.pt *.pth *.ckpt
+prune data
+prune data_external
+prune runs
+prune checkpoints
+prune reports
+prune results
+prune examples/checkpoints

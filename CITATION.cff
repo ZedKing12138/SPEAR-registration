@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this implementation, please cite the SPEAR paper below and acknowledge this software."
+type: software
+title: "SPEAR: PyTorch Implementation"
+version: "0.1.0"
+license: MIT
+authors:
+  - family-names: Bai
+    given-names: Hao
+preferred-citation:
+  type: conference-paper
+  title: "SPEAR: Error-Guided Sparse Refinement for Scalable Deformable Medical Image Registration"
+  authors:
+    - family-names: Bai
+      given-names: Hao
+    - family-names: Hong
+      given-names: Yi
+  year: 2026
+  conference:
+    name: "International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI)"
